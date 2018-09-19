@@ -9,6 +9,16 @@
         <p>Post content: {{ post.content }}</p>
         <p>Post date: {{ post.date | date('H:i:s') }}</p>
         <p>{{ 623|price }}</p>
+        <p>Current locale: {{ locale }}</p>
+        <p>Message from config file: {{ message }}</p>
+
+        <h1>Globals from twig:</h1>
+        <p>Env: {{ app.environment }}</p>
+        <p>User: {{ app.user }}</p>
+        <p>Request: {{ app.request }}</p>
+        <p>Session started: {{ app.session.isStarted() }}</p>
+        <p>Debug: {{ app.debug }}</p>
+        <p>Token: {{ app.token }}</p>
 
 
 {% endblock %}
