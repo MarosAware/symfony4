@@ -30,7 +30,7 @@ class BlogController extends AbstractController
     /**
      * @Route("/", name="blog_index")
      */
-    public function index(Request $request)
+    public function index()
     {
 
         return $this->render('blog/index.html.twig', array(
@@ -46,14 +46,17 @@ class BlogController extends AbstractController
         $posts = $this->session->get('posts');
         $posts[uniqid()] = [
             'title' => 'A random title' . rand(1,600),
-            'content' => 'A random content lorem ipsum ' . rand(1,600)
+            'content' => 'A random content lorem ipsum ' . rand(1,600),
+            'date' => new \DateTime()
         ];
 
         $this->session->set('posts', $posts);
+
+        return $this->redirectToRoute('blog_index');
     }
 
     /**
-     * @Route("/show/{$id}", name="blog_show")
+     * @Route("/show/{id}", name="blog_show")
      */
     public function show($id)
     {
@@ -63,7 +66,7 @@ class BlogController extends AbstractController
             throw new NotFoundHttpException('Post not found');
         }
 
-        $this->render('blog/show.html.twig', array(
+        return $this->render('blog/post.html.twig', array(
             'id' => $id,
             'post' => $posts[$id]
         ));
