@@ -6,6 +6,7 @@
 parameters:
     locale: 'en'
     hello_message: 'Hello from service'
+    app_env: '%env(APP_ENV)%'
 
 services:
     # default configuration for services in *this* file
@@ -17,6 +18,7 @@ services:
                             # The best practice is to be explicit about your dependencies anyway.
         bind:
             $message: '%hello_message%'
+            $appEnv: '%app_env%'
 #            App\Service\SomeInterface: '@some_service'
 
 

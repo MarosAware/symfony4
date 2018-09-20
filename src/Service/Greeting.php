@@ -16,16 +16,21 @@ class Greeting
      * @var string
      */
     private $message;
+    /**
+     * @var string
+     */
+    private $appEnv;
 
-    public function __construct(LoggerInterface $logger, string $message)
+    public function __construct(LoggerInterface $logger, string $message, string $appEnv)
     {
         $this->logger = $logger;
         $this->message = $message;
+        $this->appEnv = $appEnv;
     }
 
     public function greet(string $name): string
     {
         $this->logger->info("Greeted $name");
-        return "{$this->message} $name";
+        return "{$this->message} $name from {$this->appEnv}";
     }
 }

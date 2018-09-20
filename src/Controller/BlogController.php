@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Service\Greeting;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,6 +26,15 @@ class BlogController extends AbstractController
     {
         $this->greeting = $greeting;
         $this->session = $session;
+    }
+
+    /**
+     * @Route("/hello")
+     */
+    public function hello()
+    {
+        $result = $this->greeting->greet('Dziadek');
+        return new Response($result);
     }
 
     /**
