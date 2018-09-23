@@ -33,6 +33,6 @@ class MicroPostController extends AbstractController
     {
         $posts = $this->microPostRepository->findAll();
 
-        return $this->render('micro-post/index.html.twig', compact($posts));
+        return $this->render('micro-post/index.html.twig', ['posts' => $posts]);
     }
 }
