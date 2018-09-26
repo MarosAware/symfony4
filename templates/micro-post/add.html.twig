@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+
+    {{ form_errors(form) }}
+
+    <div>
+        {{ form_label(form.text, 'My text custom label') }}
+        {{ form_errors(form.text) }}
+        {{ form_widget(form.text) }}
+        {{ form_help(form.text) }}
+    </div>
+
+    <p>Testing field full name: {{ form.text.vars.full_name }}</p>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    {{ form_end(form) }}
+{% endblock %}
