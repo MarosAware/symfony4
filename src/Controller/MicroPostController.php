@@ -57,6 +57,7 @@ class MicroPostController extends AbstractController
         return $this->render('micro-post/index.html.twig', ['posts' => $posts]);
     }
 
+
     /**
      * @Route("/add", name="micro_post_add")
      */
@@ -83,4 +84,15 @@ class MicroPostController extends AbstractController
             ])
         );
     }
+
+    /**
+     * @Route("/{id}", name="micro_post_post")
+     */
+    public function post(MicroPost $post)
+    {
+
+        return $this->render('micro-post/post.html.twig', ['post' => $post]);
+    }
+
+
 }
