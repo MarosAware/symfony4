@@ -1,7 +1,15 @@
 security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        in_memory:
+#            Allow to create static in memory user to authenticate in application
+            memory:
+                users:
+                    john:
+                        password: hellojohn
+                        roles: 'ROLE_USER'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -10,8 +18,8 @@ security:
             anonymous: true
 
             # activate different ways to authenticate
-
-            # http_basic: true
+            # ~ sign use default configuration
+            http_basic: ~
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
             # form_login: true
@@ -20,5 +28,5 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/micro-post, roles: ROLE_USER }
         # - { path: ^/profile, roles: ROLE_USER }
