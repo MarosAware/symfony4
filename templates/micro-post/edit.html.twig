@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Edit post:</h2>
+    {{ form_start(form) }}
+
+    {#This row function render label, errors and widget#}
+    {#{{ form_row(form.text) }}#}
+
+    {#Equivalent of form_row() render function#}
+    {{ form_label(form.text, 'Post content') }}
+    {{ form_widget(form.text) }}
+    {{ form_help(form.text) }}
+
+    {#Bootstrap 4 handle errors in label#}
+    {#{{ form_errors(form.text) }}#}
+
+
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    {#{{ form_row(form.submit, {'label': 'Submit'}) }}#}
+    {{ form_end(form) }}
+{% endblock %}
+

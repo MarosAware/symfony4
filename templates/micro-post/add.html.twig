@@ -3,12 +3,12 @@
 {% block body %}
     {{ form_start(form) }}
 
-    {{ form_errors(form) }}
-
     <div>
         {{ form_label(form.text, 'My text custom label') }}
-        {{ form_errors(form.text) }}
         {{ form_widget(form.text) }}
+
+        {#Don't display error for this field because it is handled by bootstrap theme label #}
+        {#{{ form_errors(form.text) }}#}
         {{ form_help(form.text) }}
     </div>
 

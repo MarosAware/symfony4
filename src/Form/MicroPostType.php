@@ -12,7 +12,10 @@ class MicroPostType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('text', TextareaType::class, ['label' => false]);
+        $builder->add('text', TextareaType::class, [
+            'label' => false,
+            'help' => 'Here you type your post content.'
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
