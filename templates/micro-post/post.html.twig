@@ -3,6 +3,7 @@
 {% block body %}
     <small class="d-block text-right mt-3">
         <a href="{{ path('micro_post_edit', {'id': post.id}) }}">Edit post</a>
+        <a href="{{ path('micro_post_delete', {'id': post.id}) }}">Delete post</a>
     </small>
     {{ include('micro-post/raw-post.html.twig', {'post': post}) }}
 {% endblock %}
